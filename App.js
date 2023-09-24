@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <BottomTabs />
+        <BottomTabs/>
       </NavigationContainer>
     </>
   );
