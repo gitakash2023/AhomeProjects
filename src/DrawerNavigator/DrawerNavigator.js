@@ -8,7 +8,7 @@ import PopularProducts from './DrawerScreens/PopularProducts';
 const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator useLegacyImplementation>
       <Drawer.Screen name="My Order" component={MyOrders} />
       <Drawer.Screen name="Liked Products" component={LikedProducts} />
       <Drawer.Screen name="Cart" component={Cart} />
