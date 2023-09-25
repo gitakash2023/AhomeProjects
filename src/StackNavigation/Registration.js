@@ -15,7 +15,7 @@ const Login = () => {
   const handleRegistration = async () => {
     try {
       // Send the userData object to the backend API
-      const response = await fetch('https://your-backend-api.com/register', {
+      const response = await fetch('', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,12 +29,10 @@ const Login = () => {
         const data = await response.json();
         console.log('Registration successful:', data);
       } else {
-        // Handle other possible response status codes (e.g., validation errors)
         const errorData = await response.json();
         console.error('Registration failed:', errorData);
       }
     } catch (error) {
-      // Handle network errors or other issues
       console.error('An error occurred during registration:', error);
     }
   };

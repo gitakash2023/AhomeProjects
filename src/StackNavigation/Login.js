@@ -1,13 +1,42 @@
 import {View, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {TextInput} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
   const navigation = useNavigation();
+  const [loginData, setLoginData] = useState({
+    email: '',
+    password: '',
+  });
+
   //
   const onPressToNavigateRegistration = () => {
     navigation.navigate('Registration');
+  };
+  const handleLogin = () => {
+    navigation.navigate('BottomTabs');
+    // try {
+    //   const response = await fetch('', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(loginData), // Send the loginData object
+    //   });
+
+    //   if (response.ok) {
+    //     // Login was successful
+    //     const data = await response.json();
+    //     console.log('Login successful:', data);
+    //     // Redirect to the home screen
+
+    //   } else {
+    //     console.error('Login failed');
+    //   }
+    // } catch (error) {
+    //   console.error('An error occurred during login:', error);
+    // }
   };
   return (
     <>
@@ -24,6 +53,8 @@ const Login = () => {
       </View>
       <TextInput
         placeholder="Enter email"
+        value={loginData.email}
+        onChangeText={text => setLoginData({...loginData, email: text})}
         style={{
           width: '85%',
           alignSelf: 'center',
@@ -34,6 +65,8 @@ const Login = () => {
       />
       <TextInput
         placeholder="Enter  password"
+        value={loginData.password}
+        onChangeText={text => setLoginData({...loginData, password: text})}
         style={{
           width: '85%',
           alignSelf: 'center',
@@ -43,6 +76,7 @@ const Login = () => {
         }}
       />
       <TouchableOpacity
+        onPress={handleLogin}
         style={{
           width: '85%',
           alignSelf: 'center',
@@ -69,7 +103,7 @@ const Login = () => {
             marginTop: 20,
             color: 'black',
             fontSize: 24,
-            textDecorationLine:"underline "
+            textDecorationLine: 'underline ',
           }}>
           Not have an account? Sign up here
         </Text>
